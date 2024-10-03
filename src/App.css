@@ -1,38 +1,77 @@
-.App {
-  text-align: center;
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100vw; /* ใช้ความกว้างทั้งหมดของหน้าจอ */
+  height: 100vh; /* ใช้ความสูงทั้งหมดของหน้าจอ */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.wrapper .box {
+  margin: 0; /* ลบ margin เพื่อให้ชิดกัน */
+  background-color: #eeeeee;
+  border-radius: 7px;
+  overflow: hidden; /* ซ่อนส่วนที่เกินออกจากกรอบ */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.box1 {
+  grid-column-start: 3;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 3;
+  overflow: hidden;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.box2 {
+  grid-column-start: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
 }
 
-.App-link {
-  color: #61dafb;
+.box3 {
+  grid-column-start: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  height:auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.box4 {
+  grid-column-start: 1; /* เริ่มที่คอลัมน์ที่ 1 */
+  grid-column-end: 4;   /* จบที่คอลัมน์ที่ 4 */
+  grid-row-start: 1;    /* เริ่มที่แถวที่ 1 */
+  grid-row-end: 4;      /* จบที่แถวที่ 4 */
+  width: 75%;            /* ความกว้าง 75% */
+  height: 100%;           /* ความสูง 75% */
+  margin: 0 auto;        /* จัดกลาง */
+  overflow: hidden; /* ซ่อนส่วนที่เกินออกจากกรอบ */
+}
+
+.topNToggleBtn {
+  margin-left: 0.5rem;
+  color: #ff5200;
+  background: #000;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(30, 1fr); /* 9 คอลัมน์ */
+  grid-template-rows: repeat(30, 1fr); /* 9 แถว */
+  gap: 0; /* ไม่มีช่องว่าง */
+  width: 100%;
+  height: 100 b %;
+}
+
+.grid-item {
+  width: 100%;
+  height: 100%;
+}
+
+.grid-item img {
+  max-width: 100%;
+  max-height: auto;
+  object-fit: 100%; /* ทำให้รูปภาพพอดีกรอบโดยไม่เสียสัดส่วน */
+  display: cover;
 }

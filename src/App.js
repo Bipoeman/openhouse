@@ -1,25 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import Video from './video/Video'; 
+import RealTimeChart from './charts/RealTimeChart';
+import FileHistory from './History.js';
+import Croppic from './Croppic.js';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  return(
+  <div className='wrapper'>
+    <div className='box4 box'><Croppic/></div>
+    <div className='box3 box'><RealTimeChart/></div>
+    <div className='box2 box'><Video/></div>
+    <div className='box1 box'><FileHistory/></div>
+  </div>
   );
-}
 
+}
 export default App;
