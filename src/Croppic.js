@@ -33,7 +33,7 @@ const ImageGrid = ({ n, onComplete }) => {
         console.error(`Error loading image: ${imgSrc}`); // แสดงข้อผิดพลาดในกรณีที่ไม่สามารถโหลดรูปภาพได้
       };
 
-      setTimeout(() => loadImages(index + 1, images),1000); // โหลดรูปถัดไปหลังจาก 1 วินาที
+      setTimeout(() => loadImages(index + 1, images),20); // โหลดรูปถัดไปหลังจาก 1 วินาที
     } else {
       onComplete(); // เรียกฟังก์ชันเมื่อโหลดครบ
     }
@@ -45,17 +45,18 @@ const ImageGrid = ({ n, onComplete }) => {
   }, [n]);
 
   return (
-    <div className="image-grid" style={{ display: 'grid', gridTemplateColumns: `repeat(${n}, 1fr)`, gap: '0' }}>
+    <center><div className="image-grid" style={{ display: 'grid', gridTemplateColumns: `repeat(${n}, 1fr)`, gap: '0' }}>
       {loadedImages.map((imgSrc, index) => (
         <div key={index} className="grid-item">
           <img 
             src={require(`./img/${imgSrc}`)} // ใช้ require เพื่อโหลดรูปจากโฟลเดอร์ img
             alt={`Image ${index}`} 
-            style={{ width: '100%', height: '100%', borderRadius: '0px' }} 
+            style={{ width: '100%', height: '100%', borderRadius: '0px'}} 
           />
         </div>
       ))}
     </div>
+    </center>
   );
 };
 
@@ -72,8 +73,7 @@ const App = () => {
 
   return (
     <div>
-        <center><h5>sattellite picture</h5></center>
-      <ImageGrid n={n} onComplete={handleComplete} key={reload} /> {/* ส่งค่า n และฟังก์ชัน onComplete */}
+      <ImageGrid n={n} onComplete={handleComplete} key={reload} margin={{ top: 0, right: 0, bottom: '20%', left: 0 }}/> {/* ส่งค่า n และฟังก์ชัน onComplete */}
     </div>
   );
 };
