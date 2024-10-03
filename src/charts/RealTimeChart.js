@@ -45,10 +45,10 @@ const RealTimeChart = () => {
   }, [currentValue]);
 
   return (
-    <div style={{ width: '100%', height: 450 }}>
+    <div style={{ width: '100%', height: 200 }}>
       <center><h5 style={{ color: '#181818' }}>Live Dashboard - Datarate (Updated Every 10 Seconds)</h5></center>
       <ResponsiveContainer>
-        <AreaChart data={data} margin={{ top: 0, right: 30, bottom: 0, left: 0 }}>  
+        <AreaChart data={data} margin={{ top: 0, right: 30, bottom: 30, left: 0 }}>  
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis 
             dataKey="time" 

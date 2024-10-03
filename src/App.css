@@ -38,10 +38,19 @@
   grid-column-end: 4;   /* จบที่คอลัมน์ที่ 4 */
   grid-row-start: 1;    /* เริ่มที่แถวที่ 1 */
   grid-row-end: 4;      /* จบที่แถวที่ 4 */
-  width: 75%;            /* ความกว้าง 75% */
+  width: 65%;            /* ความกว้าง 75% */
   height: 100%;           /* ความสูง 75% */
   margin: 0 auto;        /* จัดกลาง */
   overflow: hidden; /* ซ่อนส่วนที่เกินออกจากกรอบ */
+}
+
+.profile{
+  grid-column-start: 3;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 3;
+  overflow: hidden;
+  width: 50%;
 }
 
 .topNToggleBtn {
@@ -60,8 +69,8 @@
   grid-template-columns: repeat(30, 1fr); /* 9 คอลัมน์ */
   grid-template-rows: repeat(30, 1fr); /* 9 แถว */
   gap: 0; /* ไม่มีช่องว่าง */
-  width: 100%;
-  height: 100 b %;
+  width: 80%;
+  height:100%;
 }
 
 .grid-item {
@@ -74,4 +83,13 @@
   max-height: auto;
   object-fit: 100%; /* ทำให้รูปภาพพอดีกรอบโดยไม่เสียสัดส่วน */
   display: cover;
+}
+
+.contact-section ul {
+  list-style-type: none; /* ลบ bullet point ของ ul */
+  padding: 0;
+}
+
+.contact-section ul li {
+  display: inline-block;
 }
