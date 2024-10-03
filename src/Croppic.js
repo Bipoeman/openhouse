@@ -72,7 +72,7 @@ const App = () => {
 
   return (
     <div>
-        <center><h5>sattellite picture</h5></center>
+        <center><h1 className='bg-green-700 text-white'>sattellite picture</h1></center>
       <ImageGrid n={n} onComplete={handleComplete} key={reload} /> {/* ส่งค่า n และฟังก์ชัน onComplete */}
     </div>
   );
