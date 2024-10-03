@@ -10,33 +10,35 @@ import { Facebook, Instagram } from "react-feather";
 ReactDOM.render(
   <React.StrictMode>
     <header>
-      <a style={{textDecoration: 'none'}} href="" className="logo">
-        <img src={logo} alt="KNACKSAT logo" style={{ width: '65px', height: 'auto'}} /> 
+      <a style={{ textDecoration: 'none' }} href="" className="logo">
+        <img src={logo} alt="KNACKSAT logo" className='m-2' style={{ width: '65px', height: 'auto' }} />
       </a>
-      <ul style={{display: 'flex'}}>
+      <ul style={{ display: 'flex' }}>
         <a
-            href="https://www.instagram.com/knacksat3"
-            target="_blank"
-            rel="noreferrer"
-            title="intragram"
+          href="https://www.instagram.com/knacksat3"
+          target="_blank"
+          rel="noreferrer"
+          title="intragram"
         >
           <Instagram color="#ffffff" size={28} />
-        </a> { '    '}
+        </a> {'    '}
         <a
-            href="https://www.facebook.com/KNACKSAT3"
-            target="_blank"
-            rel="noreferrer"
-            title="facebook"
+          href="https://www.facebook.com/KNACKSAT3"
+          target="_blank"
+          rel="noreferrer"
+          title="facebook"
         >
           <Facebook color="#ffffff" size={28} />
         </a>
       </ul>
     </header>
-    <App />
+    <body>
+      <App />
+    </body>
     <footer>Made with ❤️ by <a
-            href="https://www.instagram.com/gtar.18"
-            target="_blank"
-            rel="noreferrer">gtar.18</a></footer>
+      href="https://www.instagram.com/gtar.18"
+      target="_blank"
+      rel="noreferrer">gtar.18</a></footer>
   </React.StrictMode>,
   document.getElementById('root')
 );

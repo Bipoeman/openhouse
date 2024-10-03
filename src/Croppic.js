@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 // ฟังก์ชันเพื่อโหลดรูปภาพตามชื่อที่กำหนด
 const importImages = (n) => {
   const images = [];
-  
+
   // สร้างชื่อไฟล์จาก 0_0 ถึง (n-1)_(n-1)
   for (let i = 0; i < n; i++) {
     for (let j = 0; j < n; j++) {
@@ -11,7 +11,7 @@ const importImages = (n) => {
       images.push(fileName); // เพิ่มชื่อไฟล์ลงในอาร์เรย์
     }
   }
-  
+
   return images; // ส่งกลับอาร์เรย์ชื่อไฟล์
 };
 
@@ -25,7 +25,9 @@ const ImageGrid = ({ n, onComplete }) => {
 
       // ตรวจสอบว่ารูปภาพสามารถโหลดได้
       const image = new Image();
-      image.src = require(`./img/${imgSrc}`);
+      // image.src = require(`./img/${imgSrc}`);
+      image.src = `http://192.168.0.101:8000/${imgSrc}`
+      console.log(imgSrc)
       image.onload = () => {
         setLoadedImages((prevLoaded) => [...prevLoaded, imgSrc]); // เพิ่มรูปใหม่เข้า array
       };
@@ -33,7 +35,7 @@ const ImageGrid = ({ n, onComplete }) => {
         console.error(`Error loading image: ${imgSrc}`); // แสดงข้อผิดพลาดในกรณีที่ไม่สามารถโหลดรูปภาพได้
       };
 
-      setTimeout(() => loadImages(index + 1, images),1000); // โหลดรูปถัดไปหลังจาก 1 วินาที
+      setTimeout(() => loadImages(index + 1, images), 100); // โหลดรูปถัดไปหลังจาก 1 วินาที
     } else {
       onComplete(); // เรียกฟังก์ชันเมื่อโหลดครบ
     }
@@ -45,13 +47,13 @@ const ImageGrid = ({ n, onComplete }) => {
   }, [n]);
 
   return (
-    <div className="image-grid" style={{ display: 'grid', gridTemplateColumns: `repeat(${n}, 1fr)`, gap: '0' }}>
+    <div className="image-grid m-3" style={{ display: 'grid', gridTemplateColumns: `repeat(${n}, 1fr)`, gap: '0' }}>
       {loadedImages.map((imgSrc, index) => (
         <div key={index} className="grid-item">
-          <img 
+          <img
             src={require(`./img/${imgSrc}`)} // ใช้ require เพื่อโหลดรูปจากโฟลเดอร์ img
-            alt={`Image ${index}`} 
-            style={{ width: '100%', height: '100%', borderRadius: '0px' }} 
+            alt={`Image ${index}`}
+            style={{ width: '100%', height: '100%', borderRadius: '0px' }}
           />
         </div>
       ))}
@@ -61,7 +63,7 @@ const ImageGrid = ({ n, onComplete }) => {
 
 // Component หลัก
 const App = () => {
-  const [n, setN] = useState(30); // ตั้งค่าเริ่มต้นเป็น 3x3
+  const [n, setN] = useState(4); // ตั้งค่าเริ่มต้นเป็น 3x3
   const [reload, setReload] = useState(0); // สถานะสำหรับควบคุมการโหลดใหม่
 
   const handleComplete = () => {
@@ -72,7 +74,7 @@ const App = () => {
 
   return (
     <div>
-        <center><h1 className='bg-green-700 text-white'>sattellite picture</h1></center>
+      <center><h1 className='bg-green-700 text-white '>sattellite picture</h1></center>
       <ImageGrid n={n} onComplete={handleComplete} key={reload} /> {/* ส่งค่า n และฟังก์ชัน onComplete */}
     </div>
   );
